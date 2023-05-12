@@ -14,18 +14,19 @@ const limit = 10
 export function ListUser() {
     const [users, setUser] = useState<IUsers[]>([]);
 
-    const queryString: { page?: string } = useQueryString();
-    const page = Number(queryString.page) || 1
+    const queryString: { page?: string, gender?:string } = useQueryString();
+    const page = Number(queryString.page) || 1;
+    const gender = queryString.gender
     const totalPage = Math.ceil(totalUsers / limit);
     const { isLoading, data } = useQuery({
-        queryKey: ['users', page],
-        queryFn: () => getUsers(page, 10),
+        queryKey: ['users', page, gender],
+        queryFn: () => getUsers(page, 10, gender),
         // keepPreviousData: true
     })
 
     useEffect(() => {
-        if (data?.data?.results) {
-            setUser(data?.data?.results)
+        if (data?.results) {
+            setUser(data?.results)
         }
     }, [data])
 
