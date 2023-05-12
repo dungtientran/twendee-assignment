@@ -29,7 +29,7 @@ export function User(props: IUsers) {
               Age: <span className='font-semibold '>{dob?.age}</span>
             </div>
             <div>
-              Phone: <span>{phone}</span>
+              Phone: <span className='font-semibold '>{phone}</span>
             </div>
             <div>
               City: <span className='font-semibold'>{location?.city}</span>

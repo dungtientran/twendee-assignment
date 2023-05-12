@@ -8,7 +8,7 @@ import { Pagination } from './Pagination';
 import { IUsers } from '../services/model';
 import { HeaderTable } from './HeaderTable';
 import { ItemBodyTable } from './ItemBodyTable';
-
+import SkeletonTable from './SkeletonTable';
 
 const totalUsers = 100;
 const limit = 10
@@ -22,7 +22,7 @@ export function ListUser() {
     const search = queryString.userName
     const totalPage = Math.ceil(totalUsers / limit);
 
-    const { isLoading, data } = useQuery({
+    const { isLoading, data , isError } = useQuery({
         queryKey: ['users', page, gender],
         queryFn: () => getUsers(page, limit, gender),
         // keepPreviousData: true
@@ -43,9 +43,11 @@ export function ListUser() {
                     return item
                 }
             })
-            setUser(searchList)
+            setUser(searchList);
         }
-    }, [search])
+    }, [search]);
+
+    if(isError) return <div className='h-screen flex text-gray-500 text-2xl'>Something went wrong, please try again !</div>
 
     return (
         <div className='w-full overflow-x-auto'>
@@ -56,22 +58,9 @@ export function ListUser() {
                 />
                 {isLoading ? (
                     <tbody className='relative h-screen'>
-                        <tr>
-                            <td>
-                                <div role='status' className='mt-6 animate-pulse absolute top-0 left-0 right-0 bottom-0'>
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6 rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                    <div className='mb-2.5 py-8 px-6  rounded bg-gray-200 dark:bg-gray-700' />
-                                </div>
+                        <tr >
+                            <td className='absolute top-0 left-0 right-0 bottom-0'>
+                              <SkeletonTable />
                             </td>
                         </tr>
                     </tbody>

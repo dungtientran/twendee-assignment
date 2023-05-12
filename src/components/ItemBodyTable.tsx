@@ -40,8 +40,8 @@ export function ItemBodyTable(props: IItemBodyTableProps) {
         <th className='px-4 py-5 md:px-6 md:py-3 text-[10px] sm:text-xs'>{user?.login?.username}</th>
         <th className='px-4 py-5 md:px-6 md:py-3 text-[10px] sm:text-xs'>{user?.dob?.age}</th>
         <th className='px-4 py-5 md:px-6 md:py-3 text-[10px] sm:text-xs'>{user?.gender}</th>
-        <th className='px-4 py-5 md:px-6 md:py-3 text-[10px] sm:text-xs'>{user?.location?.country}</th>
-        <th className='px-4 py-5 md:px-6 md:py-3 text-[10px] sm:text-xs'>{user?.location?.city}</th>
+        <th className='px-4 py-5 md:px-6 md:py-3 text-[10px] sm:text-xs'>{user?.phone}</th>
+        <th className='px-4 py-5 md:px-6 md:py-3 text-[10px] sm:text-xs'>{user?.nat}</th>
         <th className='px-4 py-5 md:px-6 md:py-3 text-[10px] sm:text-xs'>
           <button
             className='px-3 py-1 bg-purple-700 text-white rounded-sm hover:bg-purple-900'

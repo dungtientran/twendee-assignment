@@ -1,5 +1,3 @@
-
-
 export interface IUsers {
     id: {
         name: string,

@@ -9,5 +9,4 @@ export const getUsers = async (page: string | number, results: string | number, 
     } catch (err) {
         console.log(err);
     }
-
 }

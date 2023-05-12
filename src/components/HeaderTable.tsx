@@ -136,8 +136,8 @@ export function HeaderTable(props: IHeaderTableProps) {
                 </th>
                 <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>Age</th>
                 <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs whitespace-nowrap'>Gender</th>
-                <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>Country</th>
-                <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>City</th>
+                <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>Phone</th>
+                <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>Nat</th>
                 <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>Action</th>
             </tr>
         </thead>
