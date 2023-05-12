@@ -1,5 +1,7 @@
 import axiosConfig from "."
+import { IPage } from "./model"
 
-export const getAllUser = (page?: string , results?: string ) => {
-    return axiosConfig.get(`/api/?page=${page || 1}&results=${results|| 10}`)
+
+export const getUsers = (page: string | number  , results: string | number  ) => {
+    return axiosConfig.get<IPage>(`/api/?page=${page}&results=${results}`)
 }

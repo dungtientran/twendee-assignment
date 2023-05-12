@@ -67,3 +67,5 @@ export interface IPage {
     }
     results: IUsers[]
 }
+
+
