@@ -16,13 +16,14 @@ const limit = 10
 export function ListUser() {
 
     const [users, setUser] = useState<IUsers[]>([]);
+    const [totalPage, setTotalPage] = useState<number>(1);
     const queryString: { page?: string, gender?: string, userName?: string } = useQueryString();
     const page = Number(queryString.page) || 1;
     const gender = queryString.gender;
     const search = queryString.userName
-    const totalPage = Math.ceil(totalUsers / limit);
 
-    const { isLoading, data , isError } = useQuery({
+
+    const { isLoading, data, isError } = useQuery({
         queryKey: ['users', page, gender],
         queryFn: () => getUsers(page, limit, gender),
         // keepPreviousData: true
@@ -32,6 +33,7 @@ export function ListUser() {
         if (data?.results) {
             setUser(data?.results)
         }
+        setTotalPage(Math.ceil(totalUsers / limit))
     }, [data]);
 
     const sortUser = (item: IUsers[]) => setUser(item);
@@ -44,10 +46,11 @@ export function ListUser() {
                 }
             })
             setUser(searchList);
+            setTotalPage(searchList?.length)
         }
     }, [search]);
 
-    if(isError) return <div className='h-screen flex text-gray-500 text-2xl'>Something went wrong, please try again !</div>
+    if (isError) return <div className='h-screen flex text-gray-500 text-2xl'>Something went wrong, please try again !</div>
 
     return (
         <div className='w-full overflow-x-auto'>
@@ -60,12 +63,12 @@ export function ListUser() {
                     <tbody className='relative h-screen'>
                         <tr >
                             <td className='absolute top-0 left-0 right-0 bottom-0'>
-                              <SkeletonTable />
+                                <SkeletonTable />
                             </td>
                         </tr>
                     </tbody>
                 ) : (
-                    <tbody className={`${users?.length !==1 && 'h-screen'}`}>
+                    <tbody className={`${users?.length !== 1 && 'h-screen'}`}>
                         {users?.map((item, index) => (
                             <ItemBodyTable
                                 key={index}
