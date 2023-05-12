@@ -12,15 +12,16 @@ const totalUsers = 100;
 const limit = 10
 
 export function ListUser() {
-    const [users, setUser] = useState<IUsers[]>([]);
 
-    const queryString: { page?: string, gender?:string } = useQueryString();
+    const [users, setUser] = useState<IUsers[]>([]);
+    const queryString: { page?: string, gender?: string } = useQueryString();
     const page = Number(queryString.page) || 1;
     const gender = queryString.gender
     const totalPage = Math.ceil(totalUsers / limit);
+
     const { isLoading, data } = useQuery({
         queryKey: ['users', page, gender],
-        queryFn: () => getUsers(page, 10, gender),
+        queryFn: () => getUsers(page, limit, gender),
         // keepPreviousData: true
     })
 
@@ -74,7 +75,6 @@ export function ListUser() {
                             />
                         ))}
                     </tbody>
-
                 )
                 }
             </table>

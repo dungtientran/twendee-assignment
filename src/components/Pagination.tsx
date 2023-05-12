@@ -9,7 +9,6 @@ export interface IPaginationProps {
 
 export function Pagination(props: IPaginationProps) {
     const { page, totalPage } = props;
-
     const [searchParams, setSearchParams] = useSearchParams();
 
     const handleSelectPageNumber =(pageNumber: number) => {
