@@ -47,5 +47,5 @@ To learn React, check out the [React documentation](https://reactjs.org/). -->
 
 
 
-#Link Deme: 
-![Click](https://twendee-assignment-olive.vercel.app)
+##Link Demo: 
+[Click](https://twendee-assignment-olive.vercel.app/)
