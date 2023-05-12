@@ -48,4 +48,4 @@ To learn React, check out the [React documentation](https://reactjs.org/). -->
 
 
 ##Link Demo: 
-[Click](https://twendee-assignment-olive.vercel.app/)
+[https://twendee-assignment-olive.vercel.app/](https://twendee-assignment-olive.vercel.app/)
