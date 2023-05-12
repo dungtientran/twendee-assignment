@@ -2,6 +2,12 @@
 
 [https://twendee-assignment-olive.vercel.app/](https://twendee-assignment-olive.vercel.app/)
 
+## Technology
+
+```
+Reactjs, TypeScript, TailwindCss, React-Query
+```
+
 ## Project Setting
 
 1. Clone git
@@ -9,7 +15,7 @@
 ```
 git clone https://github.com/dungtientran/twendee-assignment.git
 ```
-2. Instal package
+2. Install package
 
 ```
 npm install
