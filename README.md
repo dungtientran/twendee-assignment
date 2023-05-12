@@ -5,8 +5,7 @@
 
 ## Video Review 
 
-[https://www.loom.com/share/962d48966e324b6497e8cd12f20fd3de?fbclid=IwAR04wJ0KqX5oDG5ySNyBwKSBp04Z5jluV8IMIhGm6Ghm7UAxX4-EWAYw_Z0]
-(https://www.loom.com/share/962d48966e324b6497e8cd12f20fd3de?fbclid=IwAR04wJ0KqX5oDG5ySNyBwKSBp04Z5jluV8IMIhGm6Ghm7UAxX4-EWAYw_Z0)
+[https://www.loom.com/share/962d48966e324b6497e8cd12f20fd3de?fbclid=IwAR04wJ0KqX5oDG5ySNyBwKSBp04Z5jluV8IMIhGm6Ghm7UAxX4-EWAYw_Z0](https://www.loom.com/share/962d48966e324b6497e8cd12f20fd3de?fbclid=IwAR04wJ0KqX5oDG5ySNyBwKSBp04Z5jluV8IMIhGm6Ghm7UAxX4-EWAYw_Z0)
 
 
 ## Technology
