@@ -6,6 +6,7 @@ import { Pagination } from './Pagination';
 import { IUsers } from '../services/model';
 import { HeaderTable } from './HeaderTable';
 import { ItemBodyTable } from './ItemBodyTable';
+import { useAppSelector } from '../store/hooks';
 
 
 const totalUsers = 100;
@@ -14,9 +15,10 @@ const limit = 10
 export function ListUser() {
 
     const [users, setUser] = useState<IUsers[]>([]);
-    const queryString: { page?: string, gender?: string } = useQueryString();
+    const queryString: { page?: string, gender?: string, userName?:string } = useQueryString();
     const page = Number(queryString.page) || 1;
-    const gender = queryString.gender
+    const gender = queryString.gender;
+    const search = queryString.userName
     const totalPage = Math.ceil(totalUsers / limit);
 
     const { isLoading, data } = useQuery({
@@ -29,17 +31,20 @@ export function ListUser() {
         if (data?.results) {
             setUser(data?.results)
         }
-    }, [data])
-
-    useEffect(() => {
-        document.title = 'Twendee Assignment'
-    }, [])
-
+    }, [data]);
 
     const sortUser = (item: IUsers[]) => setUser(item);
 
+    useEffect(() => {
+        if(search){
+            
+        }
+    },[search])
+
+    console.log(search);
+
     return (
-        <div className='w-full '>
+        <div className='w-full overflow-x-auto'>
             <table className='w-full text-sm text-left text-gray-500 bg-white shadow-sm rounded-md overflow-hidden relative h-screen'>
                 <HeaderTable
                     sortUser={sortUser}

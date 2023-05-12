@@ -17,6 +17,18 @@ export function HeaderTable(props: IHeaderTableProps) {
     const [sortUserName, setSortUserName] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
     const queryString = useQueryString();
+
+    
+    useEffect(() => {
+        if(queryString.sortFullName){
+            setSortFullName(queryString.sortFullName.toUpperCase())
+        }
+        if(queryString.sortUserName){
+            setSortUserName(queryString.sortUserName.toUpperCase())
+        }
+    },[queryString.sortFullName, queryString.sortUserName])
+    
+
     useEffect(() => {
         if (sortFullName === 'ASC') {
             sortUser([...users].sort((a, b) => (
@@ -34,6 +46,7 @@ export function HeaderTable(props: IHeaderTableProps) {
             searchParams.set("sortFullName", 'dsc');
             setSearchParams(searchParams);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sortFullName]);
     useEffect(() => {
         if (sortUserName === 'ASC') {
@@ -54,29 +67,22 @@ export function HeaderTable(props: IHeaderTableProps) {
             searchParams.set("sortUserName", 'dsc');
             setSearchParams(searchParams);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sortUserName]);
 
 
-    useEffect(() => {
-        if(queryString.sortFullName){
-            setSortFullName(queryString.sortFullName.toUpperCase())
-        }
-        if(queryString.sortUserName){
-            setSortUserName(queryString.sortUserName.toUpperCase())
-        }
-    },[queryString.sortFullName, queryString.sortUserName])
 
 
 
     return (
-        <thead className='text-xs text-white uppercase bg-[#6F5CC3]'>
+        <thead className='text-white uppercase bg-[#6F5CC3]'>
             <tr className=''>
-                <th scope='col' className='px-6 py-3'>Photo</th>
-                <th scope='col' className='px-6 py-3 ' >
+                <th scope='col' className='px-4 sm:py-5 text-[10px] sm:text-[8px] md:px-6 md:py-3 md:text-xs'>Photo</th>
+                <th scope='col' className='px-4 sm:py-5 text-[10px]  md:px-6 md:py-3 md:text-xs' >
                     <div className='flex items-center justify-between'>
-                        <span>Full Name</span>
+                        <span className='whitespace-nowrap'>Full Name</span>
                         <div className='text-lg flex'>
-                            <p className='text-[8px] flex flex-col items-center justify-center leading-[8px]'><span>A</span><span>I</span> <span>Z</span></p>
+                            <p className='text-[6px] md:text-[8px] flex-col items-center justify-center leading-[8px] hidden sm:flex'><span>A</span><span>I</span> <span>Z</span></p>
                             <div className='leading-[8px]'>
                                 <span
                                     className={classNames(
@@ -102,12 +108,12 @@ export function HeaderTable(props: IHeaderTableProps) {
                         </div>
                     </div>
                 </th>
-                <th scope='col' className='px-6 py-3 ' >
-                    <div className='flex items-center justify-between'>
-                        <span>User Name</span>
+                <th scope='col' className='px-4 py-5 text-[10px]  md:px-6 md:py-3  md:text-xs' >
+                    <div className='flex items-center justify-between '>
+                        <span className='whitespace-nowrap'>User Name</span>
                         <div className='text-lg flex'>
-                            <p className='text-[8px] flex flex-col items-center justify-center leading-[8px]'><span>A</span><span>I</span> <span>Z</span></p>
-                            <div className='leading-[8px]'>
+                            <p className='text-[6px] md:text-[8px] flex-col items-center justify-center leading-[8px] hidden sm:flex'><span>A</span><span>I</span> <span>Z</span></p>
+                            <div className='md:leading-[8px]'>
                                 <span
                                     className={classNames(
                                         'cursor-pointer hover:text-red-600',
@@ -132,10 +138,11 @@ export function HeaderTable(props: IHeaderTableProps) {
                         </div>
                     </div>
                 </th>
-                <th scope='col' className='px-6 py-3'>Age</th>
-                <th scope='col' className='px-6 py-3 whitespace-nowrap'>Gender</th>
-                <th scope='col' className='px-6 py-3'>Country</th>
-                <th scope='col' className='px-6 py-3'>City</th>
+                <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>Age</th>
+                <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs whitespace-nowrap'>Gender</th>
+                <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>Country</th>
+                <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>City</th>
+                <th scope='col' className='px-4 py-5 md:px-6 md:py-3 text-[10px]  md:text-xs'>Action</th>
             </tr>
         </thead>
     );

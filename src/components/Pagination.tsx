@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 export interface IPaginationProps {
@@ -16,7 +16,7 @@ export function Pagination(props: IPaginationProps) {
             setSearchParams(searchParams);
     }
     return (
-        <div className='py-6 flex justify-center'>
+        <div className='py-6 flex justify-center w-full text-[8px] sm:text-sm'>
             <nav aria-label='Page navigation example'>
                 <ul className='inline-flex -space-x-px'>
                     <li>
