@@ -1,17 +1,13 @@
 import React, {useState} from 'react';
 import { CiSearch } from 'react-icons/ci';
 import { useSearchParams } from 'react-router-dom';
-import { useAppDispatch } from '../store/hooks';
-import { search } from '../store/reducers/searchSlice';
 
 export function Search() {
     const [searchUserName, setSearchUserNam] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
-    const dispatch = useAppDispatch();
 
     const handleSubmitSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(search(searchUserName))
         searchParams.set("userName", searchUserName);
         setSearchParams(searchParams);
         setSearchUserNam('')
@@ -34,7 +30,6 @@ export function Search() {
                         <button><CiSearch className=' group-hover:scale-110' /></button>
                     </label>
                 </div>
-
             </form>
         </div>
     );

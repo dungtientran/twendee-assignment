@@ -76,7 +76,7 @@ export function ListUser() {
                         </tr>
                     </tbody>
                 ) : (
-                    <tbody className={`h-screen`}>
+                    <tbody className={`${users?.length !==1 && 'h-screen'}`}>
                         {users?.map((item, index) => (
                             <ItemBodyTable
                                 key={index}
