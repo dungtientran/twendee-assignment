@@ -70,10 +70,6 @@ export function HeaderTable(props: IHeaderTableProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sortUserName]);
 
-
-
-
-
     return (
         <thead className='text-white uppercase bg-[#6F5CC3]'>
             <tr className=''>

@@ -1,10 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import { Search } from './Search';
-export interface IHeaderProps {
-}
 
-export function Header(props: IHeaderProps) {
+export function Header() {
     return (
         <header >
             <div className='bg-[#51438F] px-6 py-4 flex items-center justify-between text-white font-semibold'>

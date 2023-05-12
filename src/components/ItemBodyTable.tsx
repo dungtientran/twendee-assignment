@@ -24,7 +24,7 @@ export function ItemBodyTable(props: IItemBodyTableProps) {
 
     <>
       <tr
-        className='bg-white border-b dark:bg-gray-900 dark:border-gray-700 text-xs cursor-pointer hover:bg-gray-50 duration-150'
+        className='bg-white border-b cursor-pointer hover:bg-gray-50 duration-150'
         title={`${user?.name?.first} ${user?.name?.last}`}
       >
         <th className='px-4 py-5 md:px-6 md:py-3 text-[10px] sm:text-xs'>

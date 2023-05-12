@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useQueryString } from '../hooks/useQueryString';
 import { useQuery } from 'react-query';
@@ -6,7 +8,6 @@ import { Pagination } from './Pagination';
 import { IUsers } from '../services/model';
 import { HeaderTable } from './HeaderTable';
 import { ItemBodyTable } from './ItemBodyTable';
-import { useAppSelector } from '../store/hooks';
 
 
 const totalUsers = 100;
@@ -15,7 +16,7 @@ const limit = 10
 export function ListUser() {
 
     const [users, setUser] = useState<IUsers[]>([]);
-    const queryString: { page?: string, gender?: string, userName?:string } = useQueryString();
+    const queryString: { page?: string, gender?: string, userName?: string } = useQueryString();
     const page = Number(queryString.page) || 1;
     const gender = queryString.gender;
     const search = queryString.userName
@@ -36,22 +37,25 @@ export function ListUser() {
     const sortUser = (item: IUsers[]) => setUser(item);
 
     useEffect(() => {
-        if(search){
-            
+        if (search) {
+            const searchList: IUsers[] = users?.filter((item) => {
+                if (search?.toLowerCase().includes(item?.login?.username?.toLowerCase())) {
+                    return item
+                }
+            })
+            setUser(searchList)
         }
-    },[search])
-
-    console.log(search);
+    }, [search])
 
     return (
         <div className='w-full overflow-x-auto'>
-            <table className='w-full text-sm text-left text-gray-500 bg-white shadow-sm rounded-md overflow-hidden relative h-screen'>
+            <table className='w-full text-sm text-left text-gray-500 bg-white shadow-sm rounded-md overflow-hidden relative '>
                 <HeaderTable
                     sortUser={sortUser}
                     users={users}
                 />
                 {isLoading ? (
-                    <tbody className='relative'>
+                    <tbody className='relative h-screen'>
                         <tr>
                             <td>
                                 <div role='status' className='mt-6 animate-pulse absolute top-0 left-0 right-0 bottom-0'>
@@ -72,7 +76,7 @@ export function ListUser() {
                         </tr>
                     </tbody>
                 ) : (
-                    <tbody>
+                    <tbody className={`h-screen`}>
                         {users?.map((item, index) => (
                             <ItemBodyTable
                                 key={index}

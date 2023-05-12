@@ -2,9 +2,6 @@ import React from 'react';
 import { Header } from './Header';
 import { ListUser } from './ListUser';
 import { Filter } from './Filter';
-import { Model } from './Model';
-import { User } from './User';
-
 
 export function Layout() {
     return (
